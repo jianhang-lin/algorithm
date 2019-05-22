@@ -6,10 +6,11 @@ package work.jianhang.sort;
 public class SortDemo {
 
     public static void main(String[] args) {
-        int n = 100000;
+        int n = 10000;
         int[] arr = SortTestHelper.generateRandomArray(n, 0, n);
         int[] arr2 = SortTestHelper.copyIntArray(arr, n);
         int[] arr3 = SortTestHelper.copyIntArray(arr, n);
+        int[] arr4 = SortTestHelper.copyIntArray(arr, n);
 
         SortTestHelper selectionSort = new SelectionSort();
         selectionSort.testSort("Selection Sort", arr, n);
@@ -19,6 +20,9 @@ public class SortDemo {
 
         SortTestHelper bubbleSort = new BubbleSort();
         bubbleSort.testSort("Bubble Sort", arr3, n);
+
+        SortTestHelper shellSort = new ShellSort();
+        shellSort.testSort("ShellSort Sort", arr4, n);
     }
 
 }
