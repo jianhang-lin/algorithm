@@ -27,17 +27,16 @@ public class SortTestHelper {
     }
 
     /**
-     * 打印b出随机数组的数据
+     * 打印出随机数组的数据
      * @param arr 随机数组
      * @param n 数组的个数
      * @param <T> 泛型
-     * @return String
      */
-    public static <T> String printArray(T[] arr, int n) {
+    public static <T> void printArray(T[] arr, int n) {
         StringBuilder sb = new StringBuilder();
         for (int i=0; i<n; i++) {
             sb.append(arr[i]).append(" ");
         }
-        return sb.toString();
+        System.out.println(sb.toString());
     }
 }

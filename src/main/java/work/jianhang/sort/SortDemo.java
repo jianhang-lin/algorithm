@@ -11,8 +11,7 @@ public class SortDemo {
         int n = 10000;
         Integer[] arr = SortTestHelper.generateRandomArray(n, 0, n);
         //selectionSort(arr, n);
-        String s = SortTestHelper.printArray(arr, n);
-        System.out.println(s);
+        SortTestHelper.printArray(arr, n);
     }
 
 }
