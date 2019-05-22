@@ -60,12 +60,12 @@ abstract class SortTestHelper extends BaseSort{
      * @param arr 数组
      * @param n 元素的个数
      */
-    void testSort(String sortName, int[] arr, int n) {
+    public void testSort(String sortName, int[] arr, int n) {
         Long startTime = System.currentTimeMillis();
         sort(arr, n);
         Long endTime = System.currentTimeMillis();
         Assert.assertTrue(isSorted(arr, n));
-        System.out.println(sortName + " : " + (endTime - startTime) / 1000 + " s");
+        System.out.println(sortName + " : " + ((endTime - startTime) * 1.0) / 1000  + " s");
     }
 
     /**
