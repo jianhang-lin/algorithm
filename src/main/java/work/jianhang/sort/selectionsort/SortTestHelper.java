@@ -1,7 +1,6 @@
 package work.jianhang.sort.selectionsort;
 
-
-import com.sun.tools.javac.util.Assert;
+import org.junit.Assert;
 
 import java.util.Random;
 
@@ -18,7 +17,7 @@ public class SortTestHelper {
      * @return int[]
      */
     public static int[] generateRandomArray(int n, int rangeL, int rangeR) {
-        Assert.check(rangeL < rangeR);
+        Assert.assertTrue(rangeL <= rangeR);
         int[] arr = new int[n];
         Random rand = new Random();
         for (int i=0; i<n; i++) {
