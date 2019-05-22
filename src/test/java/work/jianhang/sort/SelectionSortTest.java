@@ -9,7 +9,8 @@ class SelectionSortTest {
 
     @Test
     void sort() {
-        SelectionSort.sort(randomArray, n);
+        BaseSort sort = new SelectionSort();
+        sort.sort(randomArray, n);
         Integer[] integers = SortTestHelper.int2Integer(randomArray, n);
         SortTestHelper.printArray(integers, n);
     }
