@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * 定义辅助函数
  */
-class SortTestHelper {
+abstract class SortTestHelper extends BaseSort{
 
     /**
      * 生成n个元素的随机数组，每个元素的随机范围为[rangeL, rangeR]
@@ -60,9 +60,9 @@ class SortTestHelper {
      * @param arr 数组
      * @param n 元素的个数
      */
-    static <T> void testSort(String sortName, int[] arr, int n) {
+    void testSort(String sortName, int[] arr, int n) {
         Long startTime = System.currentTimeMillis();
-        //sort(arr, n);
+        sort(arr, n);
         Long endTime = System.currentTimeMillis();
         Assert.assertTrue(isSorted(arr, n));
         System.out.println(sortName + " : " + (endTime - startTime) / 1000 + " s");
@@ -82,4 +82,5 @@ class SortTestHelper {
         }
         return Boolean.TRUE;
     }
+
 }
