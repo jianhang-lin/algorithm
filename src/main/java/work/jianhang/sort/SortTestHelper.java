@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * 定义辅助函数
  */
-public class SortTestHelper {
+class SortTestHelper {
 
     /**
      * 生成n个元素的随机数组，每个元素的随机范围为[rangeL, rangeR]
@@ -16,7 +16,7 @@ public class SortTestHelper {
      * @param rangeR 随机数组的最大值
      * @return Integer[]
      */
-    public static int[] generateRandomArray(int n, int rangeL, int rangeR) {
+    static int[] generateRandomArray(int n, int rangeL, int rangeR) {
         Assert.assertTrue(rangeL <= rangeR);
         int[] arr = new int[n];
         Random rand = new Random();
@@ -32,7 +32,7 @@ public class SortTestHelper {
      * @param n 数组的个数
      * @return Intege类型的数组
      */
-    public static Integer[] int2Integer(int[] arr, int n) {
+    static Integer[] int2Integer(int[] arr, int n) {
         Integer[] integers = new Integer[n];
         for (int i=0; i<n; i++) {
             integers[i] = arr[i];
@@ -46,7 +46,7 @@ public class SortTestHelper {
      * @param n 数组的个数
      * @param <T> 泛型
      */
-    public static <T> void printArray(T[] arr, int n) {
+    static <T> void printArray(T[] arr, int n) {
         StringBuilder sb = new StringBuilder();
         for (int i=0; i<n; i++) {
             sb.append(arr[i]).append(" ");
@@ -59,13 +59,12 @@ public class SortTestHelper {
      * @param sortName 排序算法的名称
      * @param arr 数组
      * @param n 元素的个数
-     * @param <T> 泛型
      */
-    static <T> void testSort(String sortName, T[] arr, int n) {
+    static <T> void testSort(String sortName, int[] arr, int n) {
         Long startTime = System.currentTimeMillis();
         //sort(arr, n);
         Long endTime = System.currentTimeMillis();
-
+        Assert.assertTrue(isSorted(arr, n));
         System.out.println(sortName + " : " + (endTime - startTime) / 1000 + " s");
     }
 
@@ -75,7 +74,7 @@ public class SortTestHelper {
      * @param n 元素的个数
      * @return boolean
      */
-    static boolean isSorted(int[] arr, int n) {
+    private static boolean isSorted(int[] arr, int n) {
         for (int i=0; i<n-1; i++) {
             if (arr[i] > arr[i+1]) {
                 return Boolean.FALSE;
