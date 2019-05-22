@@ -3,7 +3,7 @@ package work.jianhang.sort;
 class Sort {
 
     /**
-     * 选择排序:将一个数组从小到大进行排序
+     * 选择排序:将一个int类型的数组从小到大进行排序
      * @param arr 数组
      * @param n 数组的个数
      */

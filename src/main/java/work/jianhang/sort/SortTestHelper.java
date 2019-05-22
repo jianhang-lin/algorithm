@@ -53,4 +53,19 @@ public class SortTestHelper {
         }
         System.out.println(sb.toString());
     }
+
+    /**
+     * 用来测试一个排序的算法
+     * @param sortName 排序算法的名称
+     * @param arr 数组
+     * @param n 元素的个数
+     * @param <T> 泛型
+     */
+    static <T> void testSort(String sortName, T[] arr, int n) {
+        Long startTime = System.currentTimeMillis();
+        //sort(arr, n);
+        Long endTime = System.currentTimeMillis();
+
+        System.out.println(sortName + " : " + (endTime - startTime) / 1000 + " s");
+    }
 }
