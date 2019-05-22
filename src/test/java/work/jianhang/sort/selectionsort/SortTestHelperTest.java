@@ -12,7 +12,7 @@ class SortTestHelperTest {
 
     @Test
     void generateRandomArray() {
-        int[] randomArray = SortTestHelper.generateRandomArray(10, 0, 100);
+        Integer[] randomArray = SortTestHelper.generateRandomArray(10, 0, 100);
         System.out.println(Arrays.toString(randomArray));
         Assert.assertNotNull(randomArray);
     }
