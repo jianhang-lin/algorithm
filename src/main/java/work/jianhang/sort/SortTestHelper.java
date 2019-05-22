@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * 定义辅助函数
  */
-class SortTestHelper {
+public class SortTestHelper {
 
     /**
      * 生成n个元素的随机数组，每个元素的随机范围为[rangeL, rangeR]
@@ -16,7 +16,7 @@ class SortTestHelper {
      * @param rangeR 随机数组的最大值
      * @return Integer[]
      */
-    static int[] generateRandomArray(int n, int rangeL, int rangeR) {
+    public static int[] generateRandomArray(int n, int rangeL, int rangeR) {
         Assert.assertTrue(rangeL <= rangeR);
         int[] arr = new int[n];
         Random rand = new Random();
@@ -32,7 +32,7 @@ class SortTestHelper {
      * @param n 数组的个数
      * @return Intege类型的数组
      */
-    static Integer[] int2Integer(int[] arr, int n) {
+    public static Integer[] int2Integer(int[] arr, int n) {
         Integer[] integers = new Integer[n];
         for (int i=0; i<n; i++) {
             integers[i] = arr[i];
@@ -46,7 +46,7 @@ class SortTestHelper {
      * @param n 数组的个数
      * @param <T> 泛型
      */
-    static <T> void printArray(T[] arr, int n) {
+    public static <T> void printArray(T[] arr, int n) {
         StringBuilder sb = new StringBuilder();
         for (int i=0; i<n; i++) {
             sb.append(arr[i]).append(" ");
