@@ -27,6 +27,26 @@ abstract class SortTestHelper extends BaseSort{
     }
 
     /**
+     * 生成近乎有序的随机数组
+     * @param n 元素个数
+     * @param swapTimes 交换的次数
+     * @return int[]
+     */
+    static int[] generateNearlyOrderedArray(int n, int swapTimes) {
+        int[] arr = new int[n];
+        for (int i=0; i<n; i++) {
+            arr[i] = i;
+        }
+        Random rand = new Random();
+        for (int i=0; i<swapTimes; i++) {
+            int posx = rand.nextInt(n);
+            int posy = rand.nextInt(n);
+            swap(arr, posx, posy);
+        }
+        return arr;
+    }
+
+    /**
      * 把int类型的数组转换成Intege类型的数组
      * @param arr int类型的数组
      * @param n 数组的个数
