@@ -68,4 +68,19 @@ public class SortTestHelper {
 
         System.out.println(sortName + " : " + (endTime - startTime) / 1000 + " s");
     }
+
+    /**
+     * 判断数组是否排序成功的
+     * @param arr 数组
+     * @param n 元素的个数
+     * @return boolean
+     */
+    static boolean isSorted(int[] arr, int n) {
+        for (int i=0; i<n-1; i++) {
+            if (arr[i] > arr[i+1]) {
+                return Boolean.FALSE;
+            }
+        }
+        return Boolean.TRUE;
+    }
 }
