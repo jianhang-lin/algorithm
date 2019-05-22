@@ -96,4 +96,18 @@ abstract class SortTestHelper extends BaseSort{
         ints[y] = temp;
         return ints;
     }
+
+    /**
+     * 拷贝int类型的数组
+     * @param arr 数组
+     * @param n 元素的个数
+     * @return int[]
+     */
+    static int[] copyIntArray(int[] arr, int n) {
+        int[] newArray = new int[n];
+        for (int i=0; i<n; i++) {
+            newArray[i] = arr[i];
+        }
+        return newArray;
+    }
 }
