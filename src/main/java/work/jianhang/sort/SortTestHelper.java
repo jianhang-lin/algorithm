@@ -65,7 +65,7 @@ abstract class SortTestHelper extends BaseSort{
         sort(arr, n);
         Long endTime = System.currentTimeMillis();
         Assert.assertTrue(isSorted(arr, n));
-        System.out.println(sortName + " : " + ((endTime - startTime) * 1.0) / 1000  + " s");
+        System.out.println(sortName + " : " + ((endTime - startTime) * 1.00) / 1000  + " s");
     }
 
     /**
@@ -105,9 +105,7 @@ abstract class SortTestHelper extends BaseSort{
      */
     static int[] copyIntArray(int[] arr, int n) {
         int[] newArray = new int[n];
-        for (int i=0; i<n; i++) {
-            newArray[i] = arr[i];
-        }
+        System.arraycopy(arr, 0, newArray, 0, n);
         return newArray;
     }
 }
