@@ -6,9 +6,9 @@ package work.jianhang.sort;
 abstract class BaseSort {
 
     /**
-     * 排序的实际算法实现逻辑
+     * 将一个int类型的数组从小到大进行排序
      * @param arr 数组
-     * @param n 元素的个数
+     * @param n 数组的个数
      */
     abstract void sort(int[] arr, int n);
 }
