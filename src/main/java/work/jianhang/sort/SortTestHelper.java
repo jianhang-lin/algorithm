@@ -60,7 +60,7 @@ abstract class SortTestHelper extends BaseSort{
      * @param arr 数组
      * @param n 元素的个数
      */
-    public void testSort(String sortName, int[] arr, int n) {
+    void testSort(String sortName, int[] arr, int n) {
         Long startTime = System.currentTimeMillis();
         sort(arr, n);
         Long endTime = System.currentTimeMillis();
@@ -83,4 +83,17 @@ abstract class SortTestHelper extends BaseSort{
         return Boolean.TRUE;
     }
 
+    /**
+     * 交换数组中两元素
+     * @param ints 需要进行交换操作的数组
+     * @param x 数组中的位置1
+     * @param y 数组中的位置2
+     * @return 交换后的数组
+     */
+    static int[] swap(int[] ints, int x, int y) {
+        int temp = ints[x];
+        ints[x] = ints[y];
+        ints[y] = temp;
+        return ints;
+    }
 }
