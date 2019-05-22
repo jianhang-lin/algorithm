@@ -1,16 +1,15 @@
-package work.jianhang.sort.selectionsort;
+package work.jianhang.sort;
 
 import org.junit.jupiter.api.Test;
-import work.jianhang.sort.SortTestHelper;
 
-class SelectionSortTest {
+class SortTest {
 
     private int n = 10;
     private int[] randomArray = SortTestHelper.generateRandomArray(n, 1, 100);
 
     @Test
-    void sort() {
-        SelectionSort.sort(randomArray, n);
+    void selectionSort() {
+        Sort.selectionSort(randomArray, n);
         Integer[] integers = SortTestHelper.int2Integer(randomArray, n);
         SortTestHelper.printArray(integers, n);
     }

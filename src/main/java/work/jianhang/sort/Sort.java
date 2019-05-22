@@ -1,13 +1,13 @@
-package work.jianhang.sort.selectionsort;
+package work.jianhang.sort;
 
-class SelectionSort {
+class Sort {
 
     /**
      * 选择排序:将一个数组从小到大进行排序
      * @param arr 数组
      * @param n 数组的个数
      */
-    static void sort(int[] arr, int n) {
+    static void selectionSort(int[] arr, int n) {
         for (int i=0; i<n; i++) {
             // 寻找[i,n)区间里的最小值
             int minIndex = i;
