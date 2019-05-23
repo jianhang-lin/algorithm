@@ -17,9 +17,9 @@ public class MergeSort extends SortTestHelper {
      * @param r 最后的位置
      */
     private void mergeSort(int[] arr, int l, int r) {
-        if (l >= r) {
-            return;
-        }
+//        if (l >= r) {
+//            return;
+//        }
 
         if (r-l <= 15) {
             InsertionSort insertionSort = new InsertionSort();

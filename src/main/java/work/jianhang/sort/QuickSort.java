@@ -3,7 +3,7 @@ package work.jianhang.sort;
 /**
  * 快速排序
  */
-public class QuickSort extends SortTestHelper {
+class QuickSort extends SortTestHelper {
 
     @Override
     void sort(int[] arr, int n) {
@@ -17,7 +17,13 @@ public class QuickSort extends SortTestHelper {
      * @param r 最后的位置
      */
     private void quickSort(int[] arr, int l, int r) {
-        if (l >= r) {
+//        if (l >= r) {
+//            return;
+//        }
+
+        if (r-l <= 15) {
+            InsertionSort insertionSort = new InsertionSort();
+            insertionSort.sort(arr, l, r);
             return;
         }
 
