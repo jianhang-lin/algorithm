@@ -21,6 +21,11 @@ public class MergeSort extends SortTestHelper {
             return;
         }
 
+        if (r-l <= 15) {
+            InsertionSort insertionSort = new InsertionSort();
+            insertionSort.sort(arr, l, r);
+            return;
+        }
         int mid = (l+r) / 2;
         mergeSort(arr, l, mid);
         mergeSort(arr, mid+1, r);
