@@ -12,6 +12,7 @@ public class SortDemo {
         int[] arr3 = SortTestHelper.copyIntArray(arr, n);
         int[] arr4 = SortTestHelper.copyIntArray(arr, n);
         int[] arr5 = SortTestHelper.copyIntArray(arr, n);
+        int[] arr6 = SortTestHelper.copyIntArray(arr, n);
 
         System.out.println("Test for Random Array, size = " + n +", random range [" + 0 + ", " + n + "]");
         SortTestHelper selectionSort = new SelectionSort();
@@ -28,6 +29,9 @@ public class SortDemo {
 
         SortTestHelper mergeSort = new MergeSort();
         mergeSort.testSort("Merge Sort", arr5, n);
+
+        SortTestHelper mergeSortBU = new MergeSortBU();
+        mergeSortBU.testSort("Merge SortBU", arr6, n);
     }
 
 }
