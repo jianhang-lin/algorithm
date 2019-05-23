@@ -1,5 +1,7 @@
 package work.jianhang.sort;
 
+import static work.jianhang.sort.SortTestHelper.copyIntArray;
+
 /**
  * 排序的Demo类
  */
@@ -8,16 +10,16 @@ public class SortDemo {
     public static void main(String[] args) {
         int n = 50000;
         int[] arr = SortTestHelper.generateRandomArray(n, 0, n);
-        int[] arr2 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr3 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr4 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr5 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr6 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr7 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr8 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr9 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr10 = SortTestHelper.copyIntArray(arr, n);
-        int[] arr11 = SortTestHelper.copyIntArray(arr, n);
+        int[] arr2 = copyIntArray(arr, n);
+        int[] arr3 = copyIntArray(arr, n);
+        int[] arr4 = copyIntArray(arr, n);
+        int[] arr5 = copyIntArray(arr, n);
+        int[] arr6 = copyIntArray(arr, n);
+        int[] arr7 = copyIntArray(arr, n);
+        int[] arr8 = copyIntArray(arr, n);
+        int[] arr9 = copyIntArray(arr, n);
+        int[] arr10 = copyIntArray(arr, n);
+        int[] arr11 = copyIntArray(arr, n);
 
         System.out.println("Test for Random Array, size = " + n +", random range [" + 0 + ", " + n + "]");
         SortTestHelper selectionSort = new SelectionSort();
@@ -50,8 +52,8 @@ public class SortDemo {
         SortTestHelper heapSort = new HeapSort();
         heapSort.testSort("Heap Sort", arr10, n);
 
-        SortTestHelper heapSort2 = new HeapSort2();
-        heapSort2.testSort("Heap Sort 2", arr11, n);
+        SortTestHelper heapifySort = new HeapifySort();
+        heapifySort.testSort("Heapify Sort", arr11, n);
     }
 
 }

@@ -1,9 +1,9 @@
 package work.jianhang.sort;
 
 /**
- * 改进的堆排序
+ * 改进的堆排序：Heapify算法
  */
-public class HeapSort2 extends SortTestHelper {
+public class HeapifySort extends SortTestHelper {
 
     @Override
     void sort(int[] arr, int n) {
