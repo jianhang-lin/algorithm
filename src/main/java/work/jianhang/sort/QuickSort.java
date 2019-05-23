@@ -41,7 +41,7 @@ class QuickSort extends SortTestHelper {
      * @param r 最后的位置
      * @return 返回p，使得arr[l,...,p-1]的每个数据都小于arr[p]，而arr[p+1,...,r] >的每个数据都大于arr[p]
      */
-    private int partition(int[] arr, int l, int r) {
+    int partition(int[] arr, int l, int r) {
         Random random = new Random();
         swap(arr, l, random.nextInt(r-l+1) + l);
         int v = arr[l];
