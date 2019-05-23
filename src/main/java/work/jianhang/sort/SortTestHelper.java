@@ -21,7 +21,7 @@ abstract class SortTestHelper extends BaseSort{
         int[] arr = new int[n];
         Random rand = new Random();
         for (int i=0; i<n; i++) {
-            arr[i] = rand.nextInt(rangeL-rangeR+1) + rangeR;
+            arr[i] = rand.nextInt(rangeR) + rangeL;
         }
         return arr;
     }
