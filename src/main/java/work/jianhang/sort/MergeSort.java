@@ -1,7 +1,7 @@
 package work.jianhang.sort;
 
 /**
- * 归并排序
+ * 自顶向下的归并排序
  */
 public class MergeSort extends SortTestHelper {
 
@@ -41,7 +41,7 @@ public class MergeSort extends SortTestHelper {
      * @param mid 中间的位置
      * @param r 最后的位置
      */
-    private void merge(int[] arr, int l, int mid, int r) {
+    void merge(int[] arr, int l, int mid, int r) {
         int[] aux = new int[r-l+1];
         for (int i=l; i<=r; i++) {
             aux[i-l] = arr[i];
