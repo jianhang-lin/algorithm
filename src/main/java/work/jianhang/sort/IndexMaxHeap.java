@@ -8,6 +8,7 @@ import org.junit.Assert;
 public class IndexMaxHeap {
     private int[] data;
     private int[] indexes;
+    private int[] reverse; // 表示索引i在indexes(堆)中的位置
     private int count;
     private int capacity;
 
@@ -18,6 +19,10 @@ public class IndexMaxHeap {
         this.capacity = capacity;
         data = new int[capacity + 1];
         indexes = new int[capacity + 1];
+        reverse = new int[capacity + 1];
+        for (int i=0; i<=capacity; i++) {
+            reverse[i] = 0; // 表示i这个索引在堆中不存在
+        }
         count = 0;
     }
 
@@ -54,6 +59,7 @@ public class IndexMaxHeap {
         i += 1;
         data[i] = item;
         indexes[count + 1] = i;
+        reverse[i] = count + 1;
         count++;
         shiftUp(count);
     }
@@ -62,6 +68,8 @@ public class IndexMaxHeap {
         Assert.assertTrue(count > 0);
         int ret = data[indexes[1]];
         swap(indexes, 1, count);
+        reverse[indexes[1]] = 1;
+        reverse[indexes[count]] = 0;
         count--;
         shiftDown(1);
         return ret;
@@ -71,32 +79,46 @@ public class IndexMaxHeap {
         Assert.assertTrue(count > 0);
         int ret = indexes[1] - 1; // 从内部1开始的索引转成外部从0开始的索引
         swap(indexes, 1, count);
+        reverse[indexes[1]] = 1;
+        reverse[indexes[count]] = 0;
         count--;
         shiftDown(1);
         return ret;
     }
 
     public int getItem(int i) {
+        Assert.assertTrue(contain(i));
         return data[i+1];
     }
 
     public void change(int i, int newItem) {
+        Assert.assertTrue(contain(i));
         i += 1;
         data[i] = newItem;
         // 找到indexes[j] = i，j表示data[i]在堆中的位置
         // 之后shiftUp(j)和shiftDown(j)
-        for (int j=1; j <= count; j++) {
-            if (indexes[j] == i) {
-                shiftUp(j);
-                shiftDown(j);
-                return;
-            }
-        }
+//        for (int j=1; j <= count; j++) {
+//            if (indexes[j] == i) {
+//                shiftUp(j);
+//                shiftDown(j);
+//                return;
+//            }
+//        }
+        int j = reverse[i];
+        shiftUp(j);
+        shiftDown(j);
+    }
+
+    private boolean contain(int i) {
+        Assert.assertTrue(i + 1 >= 1 && i +1 <= capacity);
+        return reverse[i+1] != 0;
     }
 
     private void shiftUp(int k) {
         while (k > 1 && data[indexes[k/2]] < data[indexes[k]]) {
             swap(indexes, k/2, k);
+            reverse[indexes[k/2]] = k/2;
+            reverse[indexes[k]] = k;
             k /= 2;
         }
     }
@@ -114,6 +136,8 @@ public class IndexMaxHeap {
                 break;
             }
             swap(indexes, k, j);
+            reverse[indexes[k]] = k;
+            reverse[indexes[j]] = j;
             k=j;
         }
     }
