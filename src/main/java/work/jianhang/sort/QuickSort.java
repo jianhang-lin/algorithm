@@ -26,7 +26,24 @@ public class QuickSort extends SortTestHelper {
         quickSort(arr, p+1, r);
     }
 
+    /**
+     * 对arr[l,...,r]部分进行partition操作
+     * @param arr 数组
+     * @param l 最先的位置
+     * @param r 最后的位置
+     * @return 返回p，使得arr[l,...,p-1]的每个数据都小于arr[p]，而arr[p+1,...,r] >的每个数据都大于arr[p]
+     */
     private int partition(int[] arr, int l, int r) {
-        return 0;
+        int v = arr[l];
+        // arr[l+1,...,j] < v; arr[j+1,...,i) > v
+        int p = l;
+        for (int i=l+1; i<=r; i++) {
+            if (arr[i] < v) {
+                swap(arr, p+1, i);
+                p++;
+            }
+        }
+        swap(arr, l, p);
+        return p;
     }
 }
