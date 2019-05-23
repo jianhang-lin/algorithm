@@ -23,6 +23,20 @@ public class MaxHeap {
         this.data = data;
     }
 
+    public MaxHeap(int[] arr, int n) {
+        data = new int[n+1];
+        capacity = n;
+        for (int i=0; i<n; i++) {
+            data[i+1] = arr[i];
+        }
+        count = n;
+
+        // 从第一个不是叶子节点的节点开始调整
+        for (int i = count/2; i>=1; i--) {
+            shiftDown(i);
+        }
+    }
+
     public int size() {
         return count;
     }
