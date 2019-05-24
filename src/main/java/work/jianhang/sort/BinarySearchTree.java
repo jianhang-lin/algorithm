@@ -25,6 +25,14 @@ public class BinarySearchTree {
         root = insert(root, key, value);
     }
 
+    public boolean contain(int key) {
+        return contain(root, key);
+    }
+
+    public Object search(int key) {
+        return search(root, key);
+    }
+
     /**
      * 向以node为根的二叉搜索树中，插入节点(key, value)
      * 返回插入新节点后的二叉树搜索树的根
@@ -46,6 +54,44 @@ public class BinarySearchTree {
             node.setRight(insert(node.getRight(), key, value));
         }
         return node;
+    }
+
+    /**
+     * 查看以node为根的二叉搜索树中是否包含键值为key的节点
+     * @param node 根节点
+     * @param key 键值
+     * @return boolean
+     */
+    private boolean contain(Node node, int key) {
+        if (node == null) {
+            return Boolean.FALSE;
+        }
+        if (key == node.getKey()) {
+            return Boolean.TRUE;
+        } else if (key < node.getKey()) {
+            return contain(node.getLeft(), key);
+        } else {
+            return contain(node.getRight(), key);
+        }
+    }
+
+    /**
+     * 在以node为根的二叉搜索树中查找key所对应的value
+     * @param node 根节点
+     * @param key 键值
+     * @return int
+     */
+    private Object search(Node node, int key) {
+        if (node == null) {
+            return null;
+        }
+        if (key == node.getKey()) {
+            return node.getValue();
+        } else if (key < node.getKey()) {
+            return search(node.getLeft(), key);
+        } else {
+            return search(node.getRight(), key);
+        }
     }
 
     public Node getRoot() {
