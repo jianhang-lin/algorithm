@@ -1,5 +1,8 @@
 package work.jianhang.sort;
 
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 /**
  * 二分搜索树
  */
@@ -52,6 +55,25 @@ public class BinarySearchTree {
      */
     public void postOrder(){
         postOrder(root);
+    }
+
+    /**
+     * 层序遍历
+     */
+    public void levelOrder(){
+        Queue<Node> q = new LinkedBlockingQueue<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            Node node = q.poll();
+            System.out.println(node.getKey());
+
+            if (node.getLeft() != null) {
+                q.add(node.getLeft());
+            }
+            if (node.getRight() != null) {
+                q.add(node.getRight());
+            }
+        }
     }
 
     /**
