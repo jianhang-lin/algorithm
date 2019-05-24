@@ -34,6 +34,27 @@ public class BinarySearchTree {
     }
 
     /**
+     * 前序遍历
+     */
+    public void preOrder(){
+        preOrder(root);
+    }
+
+    /**
+     * 中序遍历
+     */
+    public void inOrder(){
+        inOrder(root);
+    }
+
+    /**
+     * 后序遍历
+     */
+    public void postOrder(){
+        postOrder(root);
+    }
+
+    /**
      * 向以node为根的二叉搜索树中，插入节点(key, value)
      * 返回插入新节点后的二叉树搜索树的根
      * @param node 根节点
@@ -91,6 +112,55 @@ public class BinarySearchTree {
             return search(node.getLeft(), key);
         } else {
             return search(node.getRight(), key);
+        }
+    }
+
+    /**
+     * 对以node为根的二叉搜索树进行前序遍历
+     * @param node 根节点
+     */
+    private void preOrder(Node node) {
+        if (node != null) {
+            System.out.println(node.getKey());
+            preOrder(node.getLeft());
+            preOrder(node.getRight());
+        }
+    }
+
+    /**
+     * 对以node为根的二叉搜索树进行中序遍历
+     * @param node 根节点
+     */
+    private void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.getLeft());
+            System.out.println(node.getKey());
+            inOrder(node.getRight());
+        }
+    }
+
+    /**
+     * 对以node为根的二叉搜索树进行后序遍历
+     * @param node 根节点
+     */
+    private void postOrder(Node node) {
+        if (node != null) {
+            postOrder(node.getLeft());
+            postOrder(node.getRight());
+            System.out.println(node.getKey());
+        }
+    }
+
+    /**
+     * 二叉搜索树的空间释放
+     * @param node 节点
+     */
+    private void destroy(Node node) {
+        if(node != null) {
+            destroy(node.getLeft());
+            destroy(node.getRight());
+            node = null;
+            count--;
         }
     }
 
