@@ -1,5 +1,7 @@
 package work.jianhang.sort;
 
+import org.junit.Assert;
+
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -74,6 +76,26 @@ public class BinarySearchTree {
                 q.add(node.getRight());
             }
         }
+    }
+
+    /**
+     * 寻找最小的键值
+     * @return int
+     */
+    public int minimum() {
+        Assert.assertTrue(count != 0);
+        Node minNode = minimum(root);
+        return minNode.getKey();
+    }
+
+    /**
+     * 寻找最大的键值
+     * @return int
+     */
+    public int maximum() {
+        Assert.assertTrue(count != 0);
+        Node maxNode = maximum(root);
+        return maxNode.getKey();
     }
 
     /**
@@ -171,6 +193,30 @@ public class BinarySearchTree {
             postOrder(node.getRight());
             System.out.println(node.getKey());
         }
+    }
+
+    /**
+     * 对以node为根的二叉搜索树中，返回最小键值的节点
+     * @param node 根节点
+     * @return Node
+     */
+    private Node minimum(Node node) {
+        if (node.getLeft() == null) {
+            return node;
+        }
+        return minimum(node.getLeft());
+    }
+
+    /**
+     * 对以node为根的二叉搜索树中，返回最大键值的节点
+     * @param node 根节点
+     * @return Node
+     */
+    private Node maximum(Node node) {
+        if (node.getRight() == null) {
+            return node;
+        }
+        return maximum(node.getRight());
     }
 
     /**
