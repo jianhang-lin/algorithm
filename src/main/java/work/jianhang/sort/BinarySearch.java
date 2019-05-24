@@ -17,7 +17,8 @@ public class BinarySearch {
         // 在arr[l,...,r]之中查找target
         int l = 0, r = n-1;
         while (l<=r) {
-            int mid = (l+r)/2;
+//            int mid = (l+r)/2;
+            int mid = l + (r-l) / 2;
             if (arr[mid] == target) {
                 return mid;
             }
