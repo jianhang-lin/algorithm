@@ -99,6 +99,24 @@ public class BinarySearchTree {
     }
 
     /**
+     * 从二叉树中删除最小值所在的节点
+     */
+    public void removeMin() {
+        if (root != null) {
+            root = removeMin(root);
+        }
+    }
+
+    /**
+     * 从二叉树中删除最大值所在的节点
+     */
+    public void removeMax() {
+        if (root != null) {
+            root = removeMax(root);
+        }
+    }
+
+    /**
      * 向以node为根的二叉搜索树中，插入节点(key, value)
      * 返回插入新节点后的二叉树搜索树的根
      * @param node 根节点
@@ -230,6 +248,40 @@ public class BinarySearchTree {
             node = null;
             count--;
         }
+    }
+
+    /**
+     * 删除掉以node为根的二分搜索树中的最小节点
+     * 返回删除节点后新的二分搜索树的根
+     * @param node 根节点
+     * @return Node
+     */
+    private Node removeMin(Node node) {
+        if (node.getLeft() == null) {
+            Node rightNode = node.getRight();
+            node = null;
+            count--;
+            return rightNode;
+        }
+        node.setLeft(removeMin(node.getLeft()));
+        return node;
+    }
+
+    /**
+     * 删除掉以node为根的二分搜索树中的最大节点
+     * 返回删除节点后新的二分搜索树的根
+     * @param node 根节点
+     * @return Node
+     */
+    private Node removeMax(Node node) {
+        if (node.getRight() == null) {
+            Node leftNode = node.getLeft();
+            node = null;
+            count--;
+            return leftNode;
+        }
+        node.setRight(removeMax(node.getRight()));
+        return node;
     }
 
     public Node getRoot() {
