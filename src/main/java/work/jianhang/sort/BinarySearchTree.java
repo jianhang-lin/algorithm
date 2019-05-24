@@ -117,6 +117,14 @@ public class BinarySearchTree {
     }
 
     /**
+     * 从二叉树中删除键值为key的节点
+     * @param key 键值
+     */
+    public void remove(int key) {
+        remove(root, key);
+    }
+
+    /**
      * 向以node为根的二叉搜索树中，插入节点(key, value)
      * 返回插入新节点后的二叉树搜索树的根
      * @param node 根节点
@@ -284,6 +292,49 @@ public class BinarySearchTree {
         return node;
     }
 
+    /**
+     * 删除掉以node为根的二分搜索树中的键值为key的节点
+     * 返回删除节点后新的二分搜索树的根
+     * @param node
+     * @param key
+     * @return
+     */
+    private Node remove(Node node, int key) {
+        if (node == null) {
+            return null;
+        }
+        if (key < node.getKey()) {
+            node.setLeft(remove(node.getLeft(), key));
+            return node;
+        } else if (key > node.getKey()) {
+            node.setRight(remove(node.getRight(), key));
+            return node;
+        } else { // key == node.getKey()
+            if (node.getLeft() == null) {
+                Node rightNode = node.getRight();
+                node = null;
+                count--;
+                return rightNode;
+            }
+            if (node.getRight() == null) {
+                Node leftNode = node.getLeft();
+                node = null;
+                count--;
+                return leftNode;
+            }
+
+            // node.getLeft() != null && node.getRight() != null
+            Node successor = new Node(minimum(node.getRight()));
+            count++;
+            successor.setRight(removeMin(node.getRight()));
+            successor.setLeft(node.getLeft());
+            node = null;
+            count--;
+            return successor;
+        }
+
+    }
+
     public Node getRoot() {
         return root;
     }
@@ -311,6 +362,13 @@ public class BinarySearchTree {
             this.value = value;
             this.left = null;
             this.right = null;
+        }
+
+        public Node(Node node) {
+            this.key = node.getKey();
+            this.value = node.getValue();
+            this.left = node.getLeft();
+            this.right = node.getRight();
         }
 
         public int getKey() {
